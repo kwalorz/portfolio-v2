@@ -36,7 +36,7 @@ function CameraControls() {
 function Points() {
   const imgTex = useLoader(THREE.TextureLoader, sphereImg);
   const bufferRef = useRef();
-  const colors = ['0xff5050', '0x66ffcc', '0xcc66ff', '0x66ff66'];
+  //const colors = ['0xff5050', '0x66ffcc', '0xcc66ff', '0x66ff66'];
 
   let phaseShift = 0;
   let frequency = 0.002;
