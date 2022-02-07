@@ -20,15 +20,15 @@ function CameraControls() {
   const controlsRef = useRef();
   useFrame(() => {
     controlsRef.current.update();
-    //console.log(camera.position);
+    console.log(camera.position);
   });
 
   return (
     <orbitControls
       ref={controlsRef}
       args={[camera, domElement]}
-      autoRotate
-      autoRotateSpeed={0.2}
+      //autoRotate
+      //autoRotateSpeed={0.2}
     />
   );
 }
@@ -36,6 +36,7 @@ function CameraControls() {
 function Points() {
   const imgTex = useLoader(THREE.TextureLoader, sphereImg);
   const bufferRef = useRef();
+  const colors = ['0xff5050', '0x66ffcc', '0xcc66ff', '0x66ff66'];
 
   let phaseShift = 0;
   let frequency = 0.002;
@@ -47,7 +48,8 @@ function Points() {
     [phaseShift, frequency, amplitude]
   );
 
-  const count = 300;
+  //Sin Wave
+  const count = 100;
   const sep = 3;
   let positions = useMemo(() => {
     let positions = [];
@@ -98,7 +100,7 @@ function Points() {
       <pointsMaterial
         attach='material'
         map={imgTex}
-        color={0x00aaff}
+        color={0x66ccff}
         size={0.5}
         sizeAttenuation
         transparent={false}
@@ -113,7 +115,7 @@ function AnimationCanvas() {
   return (
     <Canvas
       colorManagement={false}
-      camera={{ position: [14, 18, 111], fov: 75 }}
+      camera={{ position: [68, 4, 130], fov: 75 }}
     >
       <Suspense fallback={null}>
         <Points />
